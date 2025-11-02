@@ -1,0 +1,2 @@
+"use strict";function formatName(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"",t=e.replace(/-+/g," ").trim().toLowerCase();return t.charAt(0).toUpperCase()+t.slice(1)}var inputs=document.querySelectorAll("form input");inputs.forEach(function(e){e.id||(e.id=e.name||"input-".concat(Math.random().toString(36).slice(2)));var t=document.createElement("label");t.classList.add("field-label"),t.htmlFor=e.id;var a=formatName(e.name);t.textContent=a,e.placeholder=a,e.parentElement.appendChild(t)});
+//# sourceMappingURL=js_task_fix_form_DOM.34354b61.js.map
