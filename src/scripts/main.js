@@ -1,20 +1,28 @@
 'use strict';
 
+function formatName(holderName = '') {
+  const spaced = holderName.replace(/-+/g, ' ').trim();
+  const lower = spaced.toLowerCase();
+
+  return lower.charAt(0).toUpperCase() + lower.slice(1);
+}
+
 const inputs = document.querySelectorAll('form input');
 
 inputs.forEach((input) => {
+  if (!input.id) {
+    input.id = input.name || `input-${Math.random().toString(36).slice(2)}`;
+  }
+
   const label = document.createElement('label');
 
   label.classList.add('field-label');
-
-  if (!input.id) {
-    input.id = input.name;
-  }
   label.htmlFor = input.id;
 
-  label.textContent = input.name;
+  const text = formatName(input.name);
 
-  input.placeholder = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+  label.textContent = text;
+  input.placeholder = text;
 
   input.parentElement.appendChild(label);
 });
